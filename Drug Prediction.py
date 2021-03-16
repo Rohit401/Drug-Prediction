@@ -23,38 +23,14 @@ warnings.filterwarnings('ignore')
 #DataFrame
 df=pd.read_csv('drug200.csv')  #loading into pandas DataFrame
 df
-Age	Sex	BP	Cholesterol	Na_to_K	Drug
-0	23	F	HIGH	HIGH	25.355	DrugY
-1	47	M	LOW	HIGH	13.093	drugC
-2	47	M	LOW	HIGH	10.114	drugC
-3	28	F	NORMAL	HIGH	7.798	drugX
-4	61	F	LOW	HIGH	18.043	DrugY
-...	...	...	...	...	...	...
-195	56	F	LOW	HIGH	11.567	drugC
-196	16	M	LOW	HIGH	12.006	drugC
-197	52	M	NORMAL	HIGH	9.894	drugX
-198	23	M	NORMAL	NORMAL	14.020	drugX
-199	40	F	LOW	NORMAL	11.349	drugX
-200 rows × 6 columns
+
 
 df.isnull().sum()
 df.info()
 df['Age']=pd.cut(df['Age'],bins=[15,30,50,75],labels=['young','adult','old'])
 ​
 df
-Age	Sex	BP	Cholesterol	Na_to_K	Drug
-0	young	F	HIGH	HIGH	25.355	DrugY
-1	adult	M	LOW	HIGH	13.093	drugC
-2	adult	M	LOW	HIGH	10.114	drugC
-3	young	F	NORMAL	HIGH	7.798	drugX
-4	old	F	LOW	HIGH	18.043	DrugY
-...	...	...	...	...	...	...
-195	old	F	LOW	HIGH	11.567	drugC
-196	young	M	LOW	HIGH	12.006	drugC
-197	old	M	NORMAL	HIGH	9.894	drugX
-198	young	M	NORMAL	NORMAL	14.020	drugX
-199	adult	F	LOW	NORMAL	11.349	drugX
-200 rows × 6 columns
+
 
 from sklearn.preprocessing import LabelEncoder
 le=LabelEncoder()
